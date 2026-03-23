@@ -1,37 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <title> procedimentosEsteticos</title>
+    <title>Beauty Essence - Estética e Bem-Estar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fce5d8;
+        }
+
+        header {
+            background-color: #f18cb9;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        section.hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            background-color: #fff;
+        }
+
+        section.hero img {
+            width: 400px;
+            height: auto;
+        }
+
+        section.hero h2 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        section.hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: #f18cb9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .cta-btn:hover {
+            background-color: #e164a1;
+        }
+
+        .products {
+            padding: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            margin: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .new {
+            background-color: #7fbf7f;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        footer {
+            background-color: #f18cb9;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+    </style>
 </head>
+
 <body>
-    <h1> Bem-vindo ao Beauty Essence, o seu refúgio de beleza e bem-estar!
 
-Aqui, acreditamos que a verdadeira essência da beleza está no cuidado com cada detalhe. Nosso espaço foi criado para proporcionar uma experiência única, onde você é o centro de nossa atenção. Com tratamentos exclusivos, produtos de alta qualidade e uma equipe dedicada, estamos prontos para realçar sua beleza natural e renovar sua autoestima.
+    <header>
+        <h1>Beauty Essence</h1>
+        <nav>
+            <a href="#services">Serviços</a>
+            <a href="#products">Novidades</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
 
-Deixe-se envolver por um ambiente acolhedor e sofisticado, e descubra o prazer de se cuidar de dentro para fora. No Beauty Essence, cada visita é uma jornada para o seu melhor eu!
+    <section class="hero">
+        <div>
+            <h2>Transforme Sua Beleza com Nosso Cuidado Especial</h2>
+            <p>Descubra tratamentos exclusivos que realçam sua beleza natural, com o toque delicado e profissional que você merece.</p>
+            <a href="#services" class="cta-btn">Agende Seu Atendimento</a>
+        </div>
+        <img src="https://via.placeholder.com/400x600" alt="Procedimentos Estéticos">
+    </section>
 
-    </h1> Beauty Essence
-    <h2> A Beauty Essence é um salão de estética dedicado a oferecer serviços personalizados para realçar a beleza e promover o bem-estar de seus clientes. Contamos com uma equipe al
-        amente capacitada e atualizada nas últimas tendências e técnicas do mercado de estética.
+    <section id="products" class="products">
+        <div class="product">
+            <span class="new">Novo</span>
+            <img src="https://via.placeholder.com/250" alt="Tratamento de Pele">
+            <h3>Hidratação Profunda</h3>
+            <p>Renove sua pele com um tratamento hidratante profundo que traz vitalidade e suavidade instantânea.</p>
+            <a href="#services" class="cta-btn">Agende Agora</a>
+        </div>
 
-Nosso salão oferece uma variedade de procedimentos que atendem às necessidades de cuidados com a pele, cabelo, corpo e unhas, com tratamentos tanto preventivos quanto estéticos. Entre os serviços oferecidos estão:
+        <div class="product">
+            <span class="new">Novo</span>
+            <img src="https://via.placeholder.com/250" alt="Massagem Relaxante">
+            <h3>Massagem Relaxante</h3>
+            <p>Deixe-se envolver por uma massagem relaxante que alivia tensões e promove o bem-estar total.</p>
+            <a href="#services" class="cta-btn">Agende Agora</a>
+        </div>
 
-Limpeza de pele: um tratamento fundamental para a saúde da pele, removendo impurezas, células mortas e combatendo acne e oleosidade.
-Massagens relaxantes e modeladoras: para aliviar o estresse, melhorar a circulação e modelar o corpo.
-Depilação: utilizando técnicas eficientes e menos dolorosas para proporcionar uma pele suave e livre de pelos.
-Design de sobrancelhas: ajustando o formato para realçar os olhos e trazer harmonia ao rosto.
-Hidratação e nutrição capilar: tratamentos especializados para devolver brilho e vitalidade aos fios.
-Maquiagem profissional: para ocasiões especiais ou para um look diário perfeito.
-Manicure e pedicure: cuidados completos para mãos e pés, incluindo alongamento de unhas e aplicação de esmaltes de alta qualidade.
+        <div class="product">
+            <span class="new">Novo</span>
+            <img src="https://via.placeholder.com/250" alt="Depilação">
+            <h3>Depilação Corporal</h3>
+            <p>Experimente nossa depilação com técnicas modernas e pouco invasivas para uma pele lisinha e suave.</p>
+            <a href="#services" class="cta-btn">Agende Agora</a>
+        </div>
+    </section>
 
-Cada procedimento é realizado com produtos de alta qualidade e equipamentos modernos, garantindo segurança e resultados excepcionais. O Beleza em Foco se preocupa com o atendimento personalizado e o conforto de cada cliente, sempre buscando proporcionar uma experiência única de relaxamento e transformação.
+    <footer>
+        <p>&copy; 2026 Beauty Essence | Todos os direitos reservados.</p>
+        <a href="#contact">Contato</a>
+    </footer>
 
-    </h2>
-    <p>
-
-    </p>
 </body>
+
 </html>
