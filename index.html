@@ -7,9 +7,10 @@
     <title>Beauty Essence | Estética & Bem-Estar</title>
     <style>
         :root {
-            --pink: #f18cb9;
-            --pink-dark: #e164a1;
-            --beige: #fce5d8;
+            /* Tons de rosa reduzidos e mais suaves/elegantes */
+            --pink: #e8a7c3;
+            --pink-dark: #d68fae;
+            --beige: #fdf6f2;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,168 +18,238 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: var(--beige);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
+            color: #333;
         }
         
+        /* Header mais baixo e discreto */
         header {
             background-color: var(--pink);
-            padding: 1.2rem 8%;
+            padding: 0.8rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
-        header h1 { color: white; font-size: 2rem; font-weight: bold; }
+        header h1 { color: white; font-size: 1.6rem; font-weight: bold; }
         
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.8rem;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
-        /* Banner Principal Consertado e Centralizado */
+        /* Hero / Banner Principal */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 8%;
+            padding: 40px 8%;
             background: white;
-            gap: 4rem;
-            max-width: 1200px;
+            gap: 2rem;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
-        .hero-content { flex: 1; max-width: 550px; text-align: left; }
-        .hero h2 { font-size: 2.8rem; color: #222; margin-bottom: 1.5rem; font-weight: bold; line-height: 1.2; }
-        .hero p { font-size: 1.25rem; color: #555; margin-bottom: 2.5rem; }
+        .hero-content { flex: 1; max-width: 500px; text-align: left; }
+        .hero h2 { font-size: 2.2rem; color: #222; margin-bottom: 1rem; font-weight: bold; line-height: 1.2; }
+        .hero p { font-size: 1.1rem; color: #666; margin-bottom: 1.8rem; }
         
+        /* Botões mais compactos */
         .cta-btn {
             background-color: var(--pink);
             color: white;
-            padding: 14px 32px;
+            padding: 10px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
             display: inline-block;
             transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
         }
         .cta-btn:hover { background-color: var(--pink-dark); }
 
         .hero img {
-            width: 280px;
+            width: 220px;
             height: auto;
             object-fit: contain;
         }
 
-        /* Container de Segurança para Centralizar tudo no PC */
+        /* Seções controladas para não espalhar */
         .section {
-            padding: 60px 20px;
-            max-width: 1200px; 
+            padding: 50px 20px;
+            max-width: 1100px; 
             margin: 0 auto;    
             width: 100%;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.4rem;
-            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
             color: #222;
             font-weight: bold;
         }
 
-        /* Layout de Blocos Alinhados e Juntos */
-        .product-grid, .gallery-grid {
+        /* Grids ajustadas para alinhar perfeitamente lado a lado */
+        .product-grid {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center; /* Garante que fiquem juntos no centro */
+            flex-wrap: nowrap; /* Força ficar na mesma linha no PC */
+            gap: 20px;
+            justify-content: center;
             width: 100%;
         }
 
-        /* Tamanho Fixo e Proporcional dos Cards */
-        .product {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        .gallery-grid {
             display: flex;
-            flex-direction: column;
-            width: 320px; /* Largura perfeita para não espalhar */
+            flex-wrap: nowrap; /* Força ficar na mesma linha no PC */
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
         }
 
-        .gallery-item {
+        /* Tamanho das imagens e cards reduzidos conforme solicitado */
+        .product {
             background: white;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            width: 260px; /* Alinhamento elegante para fotos */
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            width: 32%; /* Divide o espaço igualmente entre as 3 imagens */
+            max-width: 320px;
         }
 
         .product img {
             width: 100%;
-            height: 280px;
-            object-fit: cover; 
-            display: block;
-        }
-
-        .gallery-item img { 
-            width: 100%;
-            height: 340px; 
+            height: 220px; /* Altura reduzida das fotos */
             object-fit: cover; 
             display: block;
         }
 
         .product-info { 
-            padding: 1.5rem; 
+            padding: 1.2rem; 
             text-align: center; 
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 10px;
         }
         
-        .product-info h3 { font-size: 1.4rem; color: #222; margin-bottom: 0.5rem; }
-        .product-info p { color: #666; margin-bottom: 1.5rem; }
+        .product-info h3 { font-size: 1.15rem; color: #222; }
+        .product-info p { color: #666; font-size: 0.9rem; }
 
-        /* Fundos das seções preenchendo a tela inteira */
+        /* Fotos da Galeria (4 lado a lado) */
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            width: 23%; /* Divide o espaço igualmente entre as 4 imagens */
+            max-width: 240px;
+        }
+
+        .gallery-item img { 
+            width: 100%;
+            height: 260px; /* Altura reduzida das fotos da galeria */
+            object-fit: cover; 
+            display: block;
+        }
+
+        /* Fotos do Espaço (3 lado a lado) */
+        .space-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            width: 32%; /* Divide o espaço igualmente entre as 3 imagens */
+            max-width: 320px;
+        }
+
+        .space-item img {
+            width: 100%;
+            height: 220px; /* Altura reduzida das fotos do espaço */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Seção Equipe Diminuída */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            width: 240px; /* Tamanho da equipe reduzido */
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 240px; /* Foto da equipe menor */
+            object-fit: cover;
+            display: block;
+        }
+
+        .team-info {
+            padding: 1rem;
+        }
+
+        .team-info h3 { font-size: 1.1rem; color: #222; margin-bottom: 4px; }
+        .team-info p { color: #777; font-size: 0.85rem; }
+
         .bg-white { background: white; width: 100%; }
-        .bg-clean { background: #fff; width: 100%; }
 
         footer {
             background: var(--pink);
             color: white;
             text-align: center;
-            padding: 3rem 5%;
+            padding: 2rem 5%;
             width: 100%;
+            font-size: 0.85rem;
         }
 
-        /* Ajustes para Celular */
+        /* Ajustes automáticos obrigatórios para Telemóvel/Celular não quebrar */
         @media (max-width: 768px) {
+            .product-grid, .gallery-grid, .team-grid {
+                flex-wrap: wrap; /* No celular permite uma embaixo da outra para caber */
+                justify-content: center;
+            }
+            .product, .space-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            .gallery-item {
+                width: 46%; /* No celular ficam 2 por linha para não esmagar */
+            }
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
-                padding: 40px 20px;
-                gap: 2rem;
+                padding: 30px 20px;
             }
             .hero-content { text-align: center; }
-            .hero h2 { font-size: 2.2rem; }
-            .product, .gallery-item {
-                width: 100%; /* No celular eles ocupam a tela certinho */
-                max-width: 340px;
-            }
             header {
                 flex-direction: column;
-                gap: 15px;
-                text-align: center;
+                gap: 10px;
             }
             nav a {
-                margin: 0 10px;
+                margin: 0 8px;
             }
         }
     </style>
@@ -190,6 +261,7 @@
         <nav>
             <a href="#services">Serviços</a>
             <a href="#gallery">Galeria</a>
+            <a href="#space">Espaço</a>
             <a href="#team">Equipe</a>
         </nav>
     </header>
@@ -241,7 +313,7 @@
         </section>
     </div>
 
-    <div class="bg-clean">
+    <div>
         <section id="gallery" class="section">
             <h2 class="section-title">Galeria de Resultados</h2>
             <div class="gallery-grid">
@@ -262,16 +334,16 @@
     </div>
 
     <div class="bg-white">
-        <section class="section">
+        <section id="space" class="section">
             <h2 class="section-title">Nosso Espaço</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
+            <div class="product-grid">
+                <div class="space-item">
                     <img src="recpcao.jpg" alt="Recepção Beauty Essence">
                 </div>
-                <div class="gallery-item">
+                <div class="space-item">
                     <img src="sala.jpg" alt="Sala de Tratamento">
                 </div>
-                <div class="gallery-item">
+                <div class="space-item">
                     <img src="espacorelaxante.jpg" alt="Ambiente Relaxante">
                 </div>
             </div>
@@ -280,17 +352,17 @@
 
     <section id="team" class="section">
         <h2 class="section-title">Nossa Equipe</h2>
-        <div class="product-grid">
-            <div class="product">
+        <div class="team-grid">
+            <div class="team-member">
                 <img src="equipe1.jpg" alt="Esteticista">
-                <div class="product-info">
+                <div class="team-info">
                     <h3>Riana Guerra</h3>
                     <p>Esteticista e Especialista em Pele</p>
                 </div>
             </div>
-            <div class="product">
+            <div class="team-member">
                 <img src="equipe2.jpg" alt="Massagista">
-                <div class="product-info">
+                <div class="team-info">
                     <h3>Maria Giovanna maioly</h3>
                     <p>Massagista e Terapeuta</p>
                 </div>
