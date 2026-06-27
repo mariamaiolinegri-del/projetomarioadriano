@@ -49,10 +49,10 @@
             background: white;
             gap: 5rem;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
         }
         
-        .hero-content { flex: 1; min-width: 300px; }
+        .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
         .hero h2 { font-size: 2.8rem; color: #333; margin-bottom: 1rem; }
         .hero p { font-size: 1.2rem; color: #555; margin-bottom: 2rem; }
         
@@ -68,8 +68,11 @@
         
         .cta-btn:hover { background-color: var(--pink-dark); }
 
+        /* CORREÇÃO AQUI: Limita a largura máxima da seção inteira e centraliza no PC */
         .section {
-            padding: 80px 8%;
+            padding: 80px 5%;
+            max-width: 1200px; 
+            margin: 0 auto;    
             width: 100%;
         }
         
@@ -80,19 +83,33 @@
             color: #333;
         }
 
-        /* Ajuste dos Grids: Distribui melhor o espaço no PC e cria colunas equilibradas */
+        /* Grids agora usam colunas fixas e proporcionais no PC, sem criar espaços gigantes */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr); 
             gap: 30px;
-            justify-content: center;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(4, 1fr); 
             gap: 20px;
-            justify-content: center;
+        }
+
+        /* Grid específico para as 3 fotos do espaço físico ficarem alinhadas igual aos tratamentos */
+        .space-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Grid para a equipe (2 pessoas) centralizado e com tamanho ótimo no PC */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .product, .gallery-item {
@@ -105,20 +122,9 @@
             width: 100%;
         }
 
-        /* Define que os cards não vão passar de uma largura máxima agradável no PC */
-        .product {
-            max-width: 380px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
         .product img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             display: block;
         }
@@ -148,18 +154,28 @@
             height: auto;
         }
 
-        /* COMPORTAMENTO PARA O CELULAR (Telas menores) */
-        @media (max-width: 768px) {
-            .product-grid, .gallery-grid {
-                grid-template-columns: 1fr; /* Uma única coluna no celular */
+        /* RESPONSIVIDADE PARFEITA PARA CELULARES E TABLETS */
+        @media (max-width: 992px) {
+            .product-grid, .space-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
             }
-            .product, .gallery-item {
-                max-width: 100%; /* Ocupa a largura total da tela do celular */
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid, .gallery-grid, .space-grid, .team-grid {
+                grid-template-columns: 1fr; /* Tudo em 1 coluna perfeitamente empilhado no celular */
             }
             .hero { 
                 padding: 40px 5%; 
                 text-align: center; 
-                justify-content: center;
             }
         }
     </style>
@@ -243,7 +259,7 @@
     <div style="background: white;">
         <section class="section">
             <h2 class="section-title">Nosso Espaço</h2>
-            <div class="gallery-grid">
+            <div class="space-grid">
                 <div class="gallery-item">
                     <img src="recpcao.jpg" alt="Recepção Beauty Essence">
                 </div>
@@ -259,7 +275,7 @@
 
     <section id="team" class="section">
         <h2 class="section-title">Nossa Equipe</h2>
-        <div class="product-grid">
+        <div class="team-grid">
             <div class="product">
                 <img src="equipe1.jpg" alt="Esteticista">
                 <div class="product-info">
