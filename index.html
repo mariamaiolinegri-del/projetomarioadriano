@@ -41,103 +41,121 @@
             font-weight: 500;
         }
 
-        /* Banner Principal - Tamanho Ajustado */
+        /* Banner Principal - Alinhamento que Preenche a Tela */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 40px 8%;
+            padding: 50px 8%;
             background: white;
             gap: 2rem;
             flex-wrap: wrap;
         }
         
-        .hero-content { max-width: 500px; }
-        .hero h2 { font-size: 2.5rem; color: #222; margin-bottom: 1rem; }
-        .hero p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
+        .hero-content { max-width: 550px; }
+        .hero h2 { font-size: 2.8rem; color: #222; margin-bottom: 1rem; font-weight: bold; }
+        .hero p { font-size: 1.2rem; color: #555; margin-bottom: 2rem; }
         
         .cta-btn {
             display: inline-block;
             background-color: var(--pink);
             color: white;
-            padding: 10px 18px;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
         }
         .cta-btn:hover { background-color: var(--pink-dark); }
 
-        /* Container de Seção Limpo */
+        /* Ajuste de Seções para Espalhar o Conteúdo */
         .section {
-            padding: 40px 8%;
+            padding: 60px 5%;
             width: 100%;
+            max-width: 1350px; /* Alarga o limite total do site */
+            margin: 0 auto;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
+            font-size: 2.3rem;
+            margin-bottom: 3rem;
             color: #222;
         }
 
-        /* ALINHAMENTO FLEX: Centraliza os blocos sem deformar ou esticar as fotos */
+        /* ALINHAMENTO CORRIGIDO: Espalha os blocos ocupando mais espaço */
         .flex-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 30px; /* Aumenta a distância entre eles */
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        /* FORMATO DOS CARDS DO MODELO (width: 280px) */
-        .product, .gallery-item {
+        /* TAMANHOS DOS CARDS CORRIGIDOS (Aumentados para não sumirem na tela) */
+        .product {
             background: white;
-            width: 280px; 
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,.15);
-            padding: 15px;
+            width: 360px; /* De 280px para 360px: bem mais imponente */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.1);
+            padding: 20px;
             display: flex;
             flex-direction: column;
         }
 
-        /* FOTOS COM PROPORÇÃO PERFEITA (height: 220px) */
-        .product img, .gallery-item img {
+        .gallery-item {
+            background: white;
+            width: 280px; /* Itens menores para caber mais fotos por linha */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.1);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ajuste Fixo das Fotos */
+        .product img {
             width: 100%;
-            height: 220px; 
+            height: 260px; /* Proporção ideal para o card grande */
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px; 
             object-fit: cover;
             border-radius: 8px;
             display: block;
         }
 
         .product-info { 
-            padding: 15px 0 0 0; 
+            padding: 20px 0 0 0; 
             text-align: center; 
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
         
-        .product-info h3 { font-size: 1.3rem; color: #222; margin-bottom: 8px; }
-        .product-info p { color: #666; margin-bottom: 15px; flex-grow: 1; font-size: 0.95rem; }
+        .product-info h3 { font-size: 1.4rem; color: #222; margin-bottom: 10px; }
+        .product-info p { color: #666; margin-bottom: 20px; flex-grow: 1; }
         .product-info .cta-btn { align-self: center; width: 100%; text-align: center; }
 
         footer {
             background: var(--pink);
             color: white;
             text-align: center;
-            padding: 30px 5%;
+            padding: 40px 5%;
             width: 100%;
         }
 
         .hero img {
-            width: 350px;
+            width: 380px;
             border-radius: 15px;
             object-fit: cover;
         }
 
-        /* RESPONSIVIDADE COMPLETA PARA CELULAR */
+        /* AJUSTES PARA O CELULAR */
         @media (max-width: 768px) {
             header { flex-direction: column; text-align: center; gap: 10px; }
             nav a { margin: 0 10px; }
@@ -145,13 +163,13 @@
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
-                padding: 30px 5%;
+                padding: 40px 5%;
             }
-            .hero img { width: 100%; max-width: 350px; }
+            .hero img { width: 100%; max-width: 320px; }
             
             .product, .gallery-item {
                 width: 100%;
-                max-width: 320px; /* Evita que fique gigante no celular */
+                max-width: 340px;
             }
         }
     </style>
@@ -250,7 +268,7 @@
     </div>
 
     <section id="team" class="section">
-        <h2 class="section-title">Nuestra Equipe</h2>
+        <h2 class="section-title">Nossa Equipe</h2>
         <div class="flex-container">
             <div class="product">
                 <img src="equipe1.jpg" alt="Esteticista">
