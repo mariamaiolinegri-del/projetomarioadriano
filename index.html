@@ -45,11 +45,11 @@
         .hero {
             display: flex;
             align-items: center;
-            padding: 60px 10%;
+            padding: 60px 5%;
             background: white;
-            gap: 5rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
         }
         
         .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
@@ -68,10 +68,9 @@
         
         .cta-btn:hover { background-color: var(--pink-dark); }
 
-        /* CORREÇÃO AQUI: Limita a largura máxima da seção inteira e centraliza no PC */
         .section {
-            padding: 80px 5%;
-            max-width: 1200px; 
+            padding: 60px 5%;
+            max-width: 1400px; /* Permite que o site se espalhe melhor em telas grandes */
             margin: 0 auto;    
             width: 100%;
         }
@@ -83,33 +82,35 @@
             color: #333;
         }
 
-        /* Grids agora usam colunas fixas e proporcionais no PC, sem criar espaços gigantes */
+        /* CORREÇÃO DO GRID: Ajusta dinamicamente o tamanho e a quantidade de colunas */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
             gap: 30px;
+            justify-content: center;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
             gap: 20px;
+            justify-content: center;
         }
 
-        /* Grid específico para as 3 fotos do espaço físico ficarem alinhadas igual aos tratamentos */
         .space-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
+            justify-content: center;
         }
 
-        /* Grid para a equipe (2 pessoas) centralizado e com tamanho ótimo no PC */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             max-width: 800px;
             margin: 0 auto;
+            justify-content: center;
         }
 
         .product, .gallery-item {
@@ -136,7 +137,7 @@
 
         .gallery-item img { 
             width: 100%;
-            height: 340px; 
+            height: 360px; 
             object-fit: cover;
             display: block;
         }
@@ -154,28 +155,14 @@
             height: auto;
         }
 
-        /* RESPONSIVIDADE PARFEITA PARA CELULARES E TABLETS */
-        @media (max-width: 992px) {
-            .product-grid, .space-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 25px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            }
-            .team-grid {
-                grid-template-columns: 1fr;
-                max-width: 340px;
-            }
-        }
-
+        /* AJUSTES PARA TELAS MENORES (CELULARES) */
         @media (max-width: 768px) {
-            .product-grid, .gallery-grid, .space-grid, .team-grid {
-                grid-template-columns: 1fr; /* Tudo em 1 coluna perfeitamente empilhado no celular */
-            }
             .hero { 
                 padding: 40px 5%; 
                 text-align: center; 
+            }
+            .product-grid, .gallery-grid, .space-grid, .team-grid {
+                grid-template-columns: 1fr; /* Força uma coluna perfeita no celular */
             }
         }
     </style>
