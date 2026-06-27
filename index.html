@@ -15,7 +15,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: var(--beige);
             line-height: 1.6;
             overflow-x: hidden;
@@ -23,165 +23,136 @@
         
         header {
             background-color: var(--pink);
-            padding: 1.2rem 8%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
-        header h1 { color: white; font-size: 2rem; font-weight: bold; }
+        header h1 { color: white; font-size: 2rem; }
         
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 20px;
             font-weight: 500;
         }
 
-        /* Banner Principal - Alinhamento Elegante */
+        /* Banner Principal - Tamanho Ajustado */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 8%;
+            padding: 40px 8%;
             background: white;
-            gap: 4rem;
+            gap: 2rem;
             flex-wrap: wrap;
         }
         
-        .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
-        .hero h2 { font-size: 3rem; color: #222; margin-bottom: 1.5rem; font-weight: bold; line-height: 1.2; }
-        .hero p { font-size: 1.25rem; color: #555; margin-bottom: 2.5rem; }
+        .hero-content { max-width: 500px; }
+        .hero h2 { font-size: 2.5rem; color: #222; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
         
         .cta-btn {
+            display: inline-block;
             background-color: var(--pink);
             color: white;
-            padding: 16px 36px;
-            border-radius: 50px;
+            padding: 10px 18px;
             text-decoration: none;
+            border-radius: 6px;
             font-weight: bold;
-            display: inline-block;
-            transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 8px 20px rgba(241, 140, 185, 0.3);
         }
-        .cta-btn:hover { 
-            background-color: var(--pink-dark); 
-            transform: translateY(-2px);
-        }
+        .cta-btn:hover { background-color: var(--pink-dark); }
 
-        /* Área de conteúdo larga e centralizada (Estilo E-commerce de Verdade) */
+        /* Container de Seção Limpo */
         .section {
-            padding: 80px 8%;
-            max-width: 1300px; 
-            margin: 0 auto;    
+            padding: 40px 8%;
             width: 100%;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
             color: #222;
-            font-weight: bold;
         }
 
-        /* GRIDS COMPORTADOS: Distribuição perfeita no computador */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colunas largas e simétricas */
-            gap: 35px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 colunas perfeitas para fotos */
+        /* ALINHAMENTO FLEX: Centraliza os blocos sem deformar ou esticar as fotos */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
-        }
-
-        .space-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colunas para as fotos do espaço */
-            gap: 20px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 colunas para as profissionais */
-            gap: 35px;
-            max-width: 850px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Estilo Moderno dos Cartões */
+        /* FORMATO DOS CARDS DO MODELO (width: 280px) */
         .product, .gallery-item {
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            width: 280px; 
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.15);
+            padding: 15px;
             display: flex;
             flex-direction: column;
-            width: 100%;
         }
 
-        /* Proporções das Imagens que se adaptam à largura do grid */
-        .product img {
+        /* FOTOS COM PROPORÇÃO PERFEITA (height: 220px) */
+        .product img, .gallery-item img {
             width: 100%;
-            height: 340px; /* Altura ideal para preencher sem distorcer */
+            height: 220px; 
             object-fit: cover;
+            border-radius: 8px;
             display: block;
         }
 
         .product-info { 
-            padding: 2rem 1.5rem; 
+            padding: 15px 0 0 0; 
             text-align: center; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
-        .product-info h3 { font-size: 1.5rem; color: #222; margin-bottom: 0.5rem; }
-        .product-info p { color: #666; margin-bottom: 1.5rem; }
-
-        .gallery-item img { 
-            width: 100%;
-            height: 400px; /* Fotos verticais marcantes */
-            object-fit: cover;
-            display: block;
-        }
+        
+        .product-info h3 { font-size: 1.3rem; color: #222; margin-bottom: 8px; }
+        .product-info p { color: #666; margin-bottom: 15px; flex-grow: 1; font-size: 0.95rem; }
+        .product-info .cta-btn { align-self: center; width: 100%; text-align: center; }
 
         footer {
             background: var(--pink);
             color: white;
             text-align: center;
-            padding: 3rem 5%;
+            padding: 30px 5%;
             width: 100%;
         }
 
         .hero img {
-            width: 220px;
-            height: auto;
+            width: 350px;
+            border-radius: 15px;
+            object-fit: cover;
         }
 
-        /* CONFIGURAÇÃO PARA TABLETS E TELAS MÉDIAS */
-        @media (max-width: 1024px) {
-            .product-grid, .space-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* CONFIGURAÇÃO TOTALMENTE ADAPTÁVEL PARA O CELULAR */
+        /* RESPONSIVIDADE COMPLETA PARA CELULAR */
         @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; gap: 10px; }
+            nav a { margin: 0 10px; }
+            
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
-                padding: 60px 5%;
-                gap: 2.5rem;
+                padding: 30px 5%;
             }
-            .product-grid, .gallery-grid, .space-grid, .team-grid {
-                grid-template-columns: 1fr; /* Transforma tudo em 1 coluna perfeita no celular */
-                gap: 25px;
+            .hero img { width: 100%; max-width: 350px; }
+            
+            .product, .gallery-item {
+                width: 100%;
+                max-width: 320px; /* Evita que fique gigante no celular */
             }
-            .product img { height: 300px; }
-            .gallery-item img { height: 350px; }
         }
     </style>
 </head>
@@ -208,7 +179,7 @@
     <div style="background: white;">
         <section id="services" class="section">
             <h2 class="section-title">Nossos Tratamentos</h2>
-            <div class="product-grid">
+            <div class="flex-container">
                 
                 <div class="product">
                     <img src="cabelo.jpeg" alt="Hidratação Profunda Capilar">
@@ -244,7 +215,7 @@
     <div style="background: #fff;">
         <section id="gallery" class="section">
             <h2 class="section-title">Galeria de Resultados</h2>
-            <div class="gallery-grid">
+            <div class="flex-container">
                 <div class="gallery-item">
                     <img src="cabelo1.jpg" alt="Resultado 1">
                 </div>
@@ -264,7 +235,7 @@
     <div style="background: white;">
         <section class="section">
             <h2 class="section-title">Nosso Espaço</h2>
-            <div class="space-grid">
+            <div class="flex-container">
                 <div class="gallery-item">
                     <img src="recpcao.jpg" alt="Recepção Beauty Essence">
                 </div>
@@ -279,8 +250,8 @@
     </div>
 
     <section id="team" class="section">
-        <h2 class="section-title">Nossa Equipe</h2>
-        <div class="team-grid">
+        <h2 class="section-title">Nuestra Equipe</h2>
+        <div class="flex-container">
             <div class="product">
                 <img src="equipe1.jpg" alt="Esteticista">
                 <div class="product-info">
