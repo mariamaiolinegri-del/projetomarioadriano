@@ -23,7 +23,7 @@
         
         header {
             background-color: var(--pink);
-            padding: 1.2rem 5%;
+            padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -33,120 +33,122 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
-        header h1 { color: white; font-size: 2.2rem; font-weight: bold; }
+        header h1 { color: white; font-size: 2rem; font-weight: bold; }
         
         nav a {
             color: white;
             text-decoration: none;
             margin-left: 2rem;
             font-weight: 500;
-            font-size: 1.1rem;
         }
 
-        /* Banner Principal */
+        /* Banner Principal Consertado e Centralizado */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 10%;
+            padding: 60px 8%;
             background: white;
             gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .hero-content { flex: 1; max-width: 650px; }
-        .hero h2 { font-size: 3.2rem; color: #222; margin-bottom: 1.5rem; font-weight: bold; line-height: 1.2; }
-        .hero p { font-size: 1.4rem; color: #555; margin-bottom: 2.5rem; }
+        .hero-content { flex: 1; max-width: 550px; text-align: left; }
+        .hero h2 { font-size: 2.8rem; color: #222; margin-bottom: 1.5rem; font-weight: bold; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; color: #555; margin-bottom: 2.5rem; }
         
         .cta-btn {
             background-color: var(--pink);
             color: white;
-            padding: 16px 36px;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
             display: inline-block;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: background-color 0.2s;
         }
-        .cta-btn:hover { background-color: var(--pink-dark); transform: translateY(-2px); }
+        .cta-btn:hover { background-color: var(--pink-dark); }
 
-        /* Estrutura das Seções */
+        .hero img {
+            width: 280px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Container de Segurança para Centralizar tudo no PC */
         .section {
-            padding: 80px 5%;
-            max-width: 1400px; 
+            padding: 60px 20px;
+            max-width: 1200px; 
             margin: 0 auto;    
             width: 100%;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.6rem;
-            margin-bottom: 4rem;
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
             color: #222;
             font-weight: bold;
         }
 
-        /* GRIDS GRANDES E PROPORCIONAIS */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 40px;
+        /* Layout de Blocos Alinhados e Juntos */
+        .product-grid, .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center; /* Garante que fiquem juntos no centro */
             width: 100%;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-        }
-
-        /* Elementos dos Cards */
+        /* Tamanho Fixo e Proporcional dos Cards */
         .product {
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s;
+            width: 320px; /* Largura perfeita para não espalhar */
         }
-        .product:hover { transform: translateY(-5px); }
 
         .gallery-item {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            width: 260px; /* Alinhamento elegante para fotos */
         }
-        .gallery-item:hover { transform: scale(1.02); }
 
-        /* Tamanho ideal de Imagens sem amassar */
         .product img {
             width: 100%;
-            height: 300px; /* Aumentado para valorizar a imagem do serviço */
+            height: 280px;
             object-fit: cover; 
             display: block;
         }
 
         .gallery-item img { 
             width: 100%;
-            height: 380px; /* Maior destaque visual para os resultados */
+            height: 340px; 
             object-fit: cover; 
             display: block;
         }
 
         .product-info { 
-            padding: 2rem; 
+            padding: 1.5rem; 
             text-align: center; 
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .product-info h3 { font-size: 1.6rem; color: #222; margin-bottom: 0.8rem; }
-        .product-info p { color: #666; font-size: 1.1rem; margin-bottom: 2rem; }
+        
+        .product-info h3 { font-size: 1.4rem; color: #222; margin-bottom: 0.5rem; }
+        .product-info p { color: #666; margin-bottom: 1.5rem; }
+
+        /* Fundos das seções preenchendo a tela inteira */
+        .bg-white { background: white; width: 100%; }
+        .bg-clean { background: #fff; width: 100%; }
 
         footer {
             background: var(--pink);
@@ -154,30 +156,21 @@
             text-align: center;
             padding: 3rem 5%;
             width: 100%;
-            font-size: 1.1rem;
         }
 
-        .hero img {
-            width: 280px;
-            height: auto;
-        }
-
-        /* CELULAR (Responsividade impecável) */
-        @media (max-width: 900px) {
+        /* Ajustes para Celular */
+        @media (max-width: 768px) {
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
-                padding: 50px 5%;
-                gap: 3rem;
+                padding: 40px 20px;
+                gap: 2rem;
             }
-            .hero h2 { font-size: 2.4rem; }
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-                gap: 20px;
+            .hero-content { text-align: center; }
+            .hero h2 { font-size: 2.2rem; }
+            .product, .gallery-item {
+                width: 100%; /* No celular eles ocupam a tela certinho */
+                max-width: 340px;
             }
             header {
                 flex-direction: column;
@@ -201,16 +194,18 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Realce sua beleza com cuidado e delicadeza</h2>
-            <p>Tratamentos estéticos premium em Roncador.</p>
-            <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+um+horário." target="_blank" class="cta-btn">Agendar Agora</a>
-        </div>
-        <img src="logobranca.jpg" alt="Tratamento facial">
-    </section>
+    <div class="bg-white">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Realce sua beleza com cuidado e delicadeza</h2>
+                <p>Tratamentos estéticos premium em Roncador.</p>
+                <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+um+horário." target="_blank" class="cta-btn">Agendar Agora</a>
+            </div>
+            <img src="logobranca.jpg" alt="Logo Beauty Essence">
+        </section>
+    </div>
 
-    <div style="background: white;">
+    <div class="bg-white">
         <section id="services" class="section">
             <h2 class="section-title">Nossos Tratamentos</h2>
             <div class="product-grid">
@@ -218,10 +213,8 @@
                 <div class="product">
                     <img src="cabelo.jpeg" alt="Hidratação Profunda Capilar">
                     <div class="product-info">
-                        <div>
-                            <h3>Hidratação Profunda</h3>
-                            <p>Pele renovada e luminosa.</p>
-                        </div>
+                        <h3>Hidratação Profunda</h3>
+                        <p>Pele renovada e luminosa.</p>
                         <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+uma+Hidratação+Profunda." target="_blank" class="cta-btn">Agendar</a>
                     </div>
                 </div>
@@ -229,10 +222,8 @@
                 <div class="product">
                     <img src="drenagem.jpeg" alt="Massagem Relaxante e Drenagem">
                     <div class="product-info">
-                        <div>
-                            <h3>Massagem Relaxante</h3>
-                            <p>Momento de puro bem-estar.</p>
-                        </div>
+                        <h3>Massagem Relaxante</h3>
+                        <p>Momento de puro bem-estar.</p>
                         <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+uma+Massagem+Relaxante." target="_blank" class="cta-btn">Agendar</a>
                     </div>
                 </div>
@@ -240,10 +231,8 @@
                 <div class="product">
                     <img src="depilacao.jpeg" alt="Depilação Corporal">
                     <div class="product-info">
-                        <div>
-                            <h3>Depilação Corporal</h3>
-                            <p>Pele lisinha e duradoura.</p>
-                        </div>
+                        <h3>Depilação Corporal</h3>
+                        <p>Pele lisinha e duradoura.</p>
                         <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+uma+Depilação+Corporal." target="_blank" class="cta-btn">Agendar</a>
                     </div>
                 </div>
@@ -252,7 +241,7 @@
         </section>
     </div>
 
-    <div style="background: #fff;">
+    <div class="bg-clean">
         <section id="gallery" class="section">
             <h2 class="section-title">Galeria de Resultados</h2>
             <div class="gallery-grid">
@@ -272,7 +261,7 @@
         </section>
     </div>
 
-    <div style="background: white;">
+    <div class="bg-white">
         <section class="section">
             <h2 class="section-title">Nosso Espaço</h2>
             <div class="gallery-grid">
