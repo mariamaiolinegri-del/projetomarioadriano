@@ -42,7 +42,6 @@
             font-weight: 500;
         }
 
-        /* Banner Principal - Garante que ocupe o topo elegantemente */
         .hero {
             display: flex;
             align-items: center;
@@ -50,11 +49,9 @@
             padding: 60px 8%;
             background: white;
             gap: 2rem;
-            flex-wrap: wrap;
-            width: 100%;
         }
         
-        .hero-content { flex: 1; min-width: 300px; max-width: 550px; }
+        .hero-content { max-width: 550px; }
         .hero h2 { font-size: 2.8rem; color: #222; margin-bottom: 1rem; font-weight: bold; }
         .hero p { font-size: 1.2rem; color: #555; margin-bottom: 2rem; }
         
@@ -66,15 +63,12 @@
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
-            transition: background 0.2s;
         }
-        .cta-btn:hover { background-color: var(--pink-dark); }
 
-        /* Estrutura das Seções - Ocupa espaço horizontal de verdade */
         .section {
-            padding: 60px 8%;
+            padding: 60px 4%;
             width: 100%;
-            max-width: 1400px; 
+            max-width: 1300px; 
             margin: 0 auto;
         }
         
@@ -83,99 +77,70 @@
             font-size: 2.4rem;
             margin-bottom: 3.5rem;
             color: #222;
-            font-weight: bold;
         }
 
-        /* Alinhamento que força os cards a se distribuírem e preencherem as laterais */
+        /* FLEXBOX: Força os itens a ficarem lado a lado no computador */
         .flex-container {
             display: flex;
+            flex-direction: row; /* Força linha por padrão */
             flex-wrap: wrap;
             justify-content: center;
-            gap: 35px; 
+            gap: 30px; 
             width: 100%;
         }
 
-        /* Definição de tamanho dos Cards Grandes (Estilo E-commerce do modelo de batons) */
+        /* Tamanho fixo dos cards no computador para caberem lado a lado */
         .product {
             background: white;
-            width: 360px; /* Alargado substancialmente para ocupar a tela */
+            width: 350px; 
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             padding: 20px;
             display: flex;
             flex-direction: column;
         }
 
-        /* Cards menores para a Galeria e Espaço fluírem em várias colunas no PC */
         .gallery-item {
             background: white;
-            width: 280px; 
+            width: 260px; 
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             padding: 12px;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* Imagens proporcionais e sem distorção */
-        .product img {
+        .product img, .gallery-item img {
             width: 100%;
-            height: 260px; 
+            height: 250px; 
             object-fit: cover;
             border-radius: 8px;
-            display: block;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 240px; 
-            object-fit: cover;
-            border-radius: 8px;
-            display: block;
         }
 
         .product-info { 
-            padding: 20px 0 0 0; 
-            text-align: center; 
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+            padding-top: 15px; 
+            text-align: center;
         }
         
-        .product-info h3 { font-size: 1.4rem; color: #222; margin-bottom: 10px; }
-        .product-info p { color: #666; margin-bottom: 20px; flex-grow: 1; }
-        .product-info .cta-btn { align-self: center; width: 100%; text-align: center; }
+        .product-info h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .product-info p { color: #666; margin-bottom: 15px; }
 
         footer {
             background: var(--pink);
             color: white;
             text-align: center;
-            padding: 40px 5%;
-            width: 100%;
+            padding: 30px;
         }
 
-        .hero img {
-            width: 380px;
-            height: auto;
-            border-radius: 15px;
-        }
+        .hero img { width: 350px; border-radius: 15px; }
 
-        /* Responsividade para Celulares */
-        @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; gap: 12px; }
-            nav a { margin: 0 10px; }
+        /* REGRAS EXCLUSIVAS PARA CELULAR (Telas menores que 768px) */
+        @media screen and (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero img { width: 80%; }
+            header { flex-direction: column; gap: 10px; }
             
-            .hero { 
-                flex-direction: column-reverse; 
-                text-align: center; 
-                padding: 40px 5%;
-            }
-            .hero img { width: 100%; max-width: 320px; margin: 0 auto; }
-            
-            .product, .gallery-item {
-                width: 100%;
-                max-width: 340px;
-            }
+            /* No celular eles empilham */
+            .flex-container { flex-direction: column; align-items: center; }
+            .product, .gallery-item { width: 100%; max-width: 350px; }
         }
     </style>
 </head>
@@ -194,9 +159,9 @@
         <div class="hero-content">
             <h2>Realce sua beleza com cuidado e delicadeza</h2>
             <p>Tratamentos estéticos premium em Roncador.</p>
-            <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+um+horário." target="_blank" class="cta-btn">Agendar Agora</a>
+            <a href="https://wa.me/554498570355" target="_blank" class="cta-btn">Agendar Agora</a>
         </div>
-        <img src="logobranca.jpg" alt="Logo Beauty Essence">
+        <img src="logobranca.jpg" alt="Logo">
     </section>
 
     <div style="background: white;">
@@ -205,29 +170,29 @@
             <div class="flex-container">
                 
                 <div class="product">
-                    <img src="cabelo.jpeg" alt="Hidratação Profunda Capilar">
+                    <img src="cabelo.jpeg" alt="Hidratação">
                     <div class="product-info">
                         <h3>Hidratação Profunda</h3>
                         <p>Pele renovada e luminosa.</p>
-                        <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+uma+Hidratação+Profunda." target="_blank" class="cta-btn">Agendar</a>
+                        <a href="https://wa.me/554498570355" class="cta-btn">Agendar</a>
                     </div>
                 </div>
                 
                 <div class="product">
-                    <img src="drenagem.jpeg" alt="Massagem Relaxante e Drenagem">
+                    <img src="drenagem.jpeg" alt="Massagem">
                     <div class="product-info">
                         <h3>Massagem Relaxante</h3>
                         <p>Momento de puro bem-estar.</p>
-                        <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+uma+Massagem+Relaxante." target="_blank" class="cta-btn">Agendar</a>
+                        <a href="https://wa.me/554498570355" class="cta-btn">Agendar</a>
                     </div>
                 </div>
                 
                 <div class="product">
-                    <img src="depilacao.jpeg" alt="Depilação Corporal">
+                    <img src="depilacao.jpeg" alt="Depilação">
                     <div class="product-info">
                         <h3>Depilação Corporal</h3>
                         <p>Pele lisinha e duradoura.</p>
-                        <a href="https://wa.me/554498570355?text=Olá!+Gostaria+de+agendar+uma+Depilação+Corporal." target="_blank" class="cta-btn">Agendar</a>
+                        <a href="https://wa.me/554498570355" class="cta-btn">Agendar</a>
                     </div>
                 </div>
                 
@@ -239,61 +204,16 @@
         <section id="gallery" class="section">
             <h2 class="section-title">Galeria de Resultados</h2>
             <div class="flex-container">
-                <div class="gallery-item">
-                    <img src="cabelo1.jpg" alt="Resultado 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="cabelo2.jpg" alt="Resultado 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="drenagem1.jpg" alt="Resultado 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="depilacao1.jpg" alt="Resultado 4">
-                </div>
+                <div class="gallery-item"><img src="cabelo1.jpg"></div>
+                <div class="gallery-item"><img src="cabelo2.jpg"></div>
+                <div class="gallery-item"><img src="drenagem1.jpg"></div>
+                <div class="gallery-item"><img src="depilacao1.jpg"></div>
             </div>
         </section>
     </div>
-
-    <div style="background: white;">
-        <section class="section">
-            <h2 class="section-title">Nosso Espaço</h2>
-            <div class="flex-container">
-                <div class="gallery-item">
-                    <img src="recpcao.jpg" alt="Recepção Beauty Essence">
-                </div>
-                <div class="gallery-item">
-                    <img src="sala.jpg" alt="Sala de Tratamento">
-                </div>
-                <div class="gallery-item">
-                    <img src="espacorelaxante.jpg" alt="Ambiente Relaxante">
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <section id="team" class="section">
-        <h2 class="section-title">Nossa Equipe</h2>
-        <div class="flex-container">
-            <div class="product">
-                <img src="equipe1.jpg" alt="Esteticista">
-                <div class="product-info">
-                    <h3>Riana Guerra</h3>
-                    <p>Esteticista e Especialista em Pele</p>
-                </div>
-            </div>
-            <div class="product">
-                <img src="equipe2.jpg" alt="Massagista">
-                <div class="product-info">
-                    <h3>Maria Giovanna maioly</h3>
-                    <p>Massagista e Terapeuta</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
-        <p>&copy; 2026 Beauty Essence - Estética & Bem-Estar | Roncador - PR</p>
+        <p>&copy; 2026 Beauty Essence</p>
     </footer>
 
 </body>
