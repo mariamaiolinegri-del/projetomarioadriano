@@ -1,10 +1,3 @@
-O motivo das suas imagens estarem ficando uma embaixo da outra no computador é que o código atual tem uma regra de segurança limitando o tamanho máximo dos blocos (max-width: 380px e max-width: 320px) combinado com margin: 0 auto. Isso força os cartões a ficarem isolados e centralizados em vez de subirem para a mesma linha.
-
-Para resolver isso de forma definitiva, mantendo os cartões um ao lado do outro no computador e garantindo que as imagens não fiquem esticadas ou distorcidas (usando object-fit: cover), substitua todo o seu código pelo bloco abaixo.
-
-Aqui está a versão corrigida e ajustada:
-
-HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -49,7 +42,6 @@ HTML
             font-weight: 500;
         }
 
-        /* Banner Principal */
         .hero {
             display: flex;
             align-items: center;
@@ -76,7 +68,6 @@ HTML
         }
         .cta-btn:hover { background-color: var(--pink-dark); }
 
-        /* Área de conteúdo responsiva */
         .section {
             padding: 60px 8%;
             max-width: 1300px; 
@@ -92,7 +83,6 @@ HTML
             font-weight: bold;
         }
 
-        /* GRIDS FLEXÍVEIS: Alinha lado a lado no PC e quebra linha automaticamente se faltar espaço */
         .product-grid, .gallery-grid {
             display: flex;
             flex-wrap: wrap;
@@ -101,7 +91,6 @@ HTML
             width: 100%;
         }
 
-        /* Cartões Estáveis e Proporcionais */
         .product {
             background: white;
             border-radius: 16px;
@@ -110,7 +99,7 @@ HTML
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 350px; /* Tamanho perfeito para alinhar 3 itens por linha no PC */
+            max-width: 350px; 
         }
 
         .gallery-item {
@@ -121,21 +110,20 @@ HTML
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 270px; /* Tamanho perfeito para alinhar 4 itens por linha no PC */
+            max-width: 270px; 
         }
 
-        /* IMPEDE QUE AS IMAGENS FIQUEM ESTICADAS */
         .product img {
             width: 100%;
             height: 250px;
-            object-fit: cover; /* Recorta a imagem proporcionalmente sem amassar */
+            object-fit: cover; 
             display: block;
         }
 
         .gallery-item img { 
             width: 100%;
             height: 340px; 
-            object-fit: cover; /* Mantém o aspecto visual correto */
+            object-fit: cover; 
             display: block;
         }
 
@@ -159,7 +147,6 @@ HTML
             height: auto;
         }
 
-        /* COMPORTAMENTO ADAPTÁVEL PARA O CELULAR */
         @media (max-width: 768px) {
             .hero { 
                 flex-direction: column-reverse; 
@@ -173,7 +160,7 @@ HTML
                 gap: 25px;
             }
             .product, .gallery-item {
-                max-width: 100%; /* No celular expande e ocupa a tela inteira */
+                max-width: 100%; 
             }
             header {
                 flex-direction: column;
