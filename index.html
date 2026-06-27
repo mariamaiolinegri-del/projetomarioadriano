@@ -1,3 +1,10 @@
+O motivo das suas imagens estarem ficando uma embaixo da outra no computador é que o código atual tem uma regra de segurança limitando o tamanho máximo dos blocos (max-width: 380px e max-width: 320px) combinado com margin: 0 auto. Isso força os cartões a ficarem isolados e centralizados em vez de subirem para a mesma linha.
+
+Para resolver isso de forma definitiva, mantendo os cartões um ao lado do outro no computador e garantindo que as imagens não fiquem esticadas ou distorcidas (usando object-fit: cover), substitua todo o seu código pelo bloco abaixo.
+
+Aqui está a versão corrigida e ajustada:
+
+HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,17 +30,17 @@
         
         header {
             background-color: var(--pink);
-            padding: 1rem 5%;
+            padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
-        header h1 { color: white; font-size: 2.2rem; }
+        header h1 { color: white; font-size: 2rem; font-weight: bold; }
         
         nav a {
             color: white;
@@ -42,19 +49,20 @@
             font-weight: 500;
         }
 
+        /* Banner Principal */
         .hero {
             display: flex;
             align-items: center;
-            padding: 60px 10%;
-            background: white;
-            gap: 5rem;
-            flex-wrap: wrap;
             justify-content: space-between;
+            padding: 60px 8%;
+            background: white;
+            gap: 4rem;
+            flex-wrap: wrap;
         }
         
-        .hero-content { flex: 1; min-width: 300px; }
-        .hero h2 { font-size: 2.8rem; color: #333; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: #555; margin-bottom: 2rem; }
+        .hero-content { flex: 1; min-width: 300px; max-width: 600px; }
+        .hero h2 { font-size: 2.8rem; color: #222; margin-bottom: 1.5rem; font-weight: bold; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; color: #555; margin-bottom: 2.5rem; }
         
         .cta-btn {
             background-color: var(--pink);
@@ -64,62 +72,70 @@
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
+            transition: background-color 0.2s;
         }
-        
         .cta-btn:hover { background-color: var(--pink-dark); }
 
+        /* Área de conteúdo responsiva */
         .section {
-            padding: 80px 8%;
+            padding: 60px 8%;
+            max-width: 1300px; 
+            margin: 0 auto;    
             width: 100%;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.3rem;
+            font-size: 2.4rem;
             margin-bottom: 3rem;
-            color: #333;
+            color: #222;
+            font-weight: bold;
         }
 
-        /* Ajuste dos Grids: Distribui melhor o espaço no PC e cria colunas equilibradas */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* GRIDS FLEXÍVEIS: Alinha lado a lado no PC e quebra linha automaticamente se faltar espaço */
+        .product-grid, .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
+            width: 100%;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .product, .gallery-item {
+        /* Cartões Estáveis e Proporcionais */
+        .product {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
             width: 100%;
-        }
-
-        /* Define que os cards não vão passar de uma largura máxima agradável no PC */
-        .product {
-            max-width: 380px;
-            margin: 0 auto;
+            max-width: 350px; /* Tamanho perfeito para alinhar 3 itens por linha no PC */
         }
 
         .gallery-item {
-            max-width: 320px;
-            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 270px; /* Tamanho perfeito para alinhar 4 itens por linha no PC */
         }
 
+        /* IMPEDE QUE AS IMAGENS FIQUEM ESTICADAS */
         .product img {
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            object-fit: cover; /* Recorta a imagem proporcionalmente sem amassar */
+            display: block;
+        }
+
+        .gallery-item img { 
+            width: 100%;
+            height: 340px; 
+            object-fit: cover; /* Mantém o aspecto visual correto */
             display: block;
         }
 
@@ -127,13 +143,8 @@
             padding: 1.5rem; 
             text-align: center; 
         }
-
-        .gallery-item img { 
-            width: 100%;
-            height: 340px; 
-            object-fit: cover;
-            display: block;
-        }
+        .product-info h3 { font-size: 1.4rem; color: #222; margin-bottom: 0.5rem; }
+        .product-info p { color: #666; margin-bottom: 1.5rem; }
 
         footer {
             background: var(--pink);
@@ -144,22 +155,33 @@
         }
 
         .hero img {
-            width: 180px;
+            width: 220px;
             height: auto;
         }
 
-        /* COMPORTAMENTO PARA O CELULAR (Telas menores) */
+        /* COMPORTAMENTO ADAPTÁVEL PARA O CELULAR */
         @media (max-width: 768px) {
+            .hero { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                padding: 40px 5%;
+                gap: 2.5rem;
+            }
             .product-grid, .gallery-grid {
-                grid-template-columns: 1fr; /* Uma única coluna no celular */
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
             }
             .product, .gallery-item {
-                max-width: 100%; /* Ocupa a largura total da tela do celular */
+                max-width: 100%; /* No celular expande e ocupa a tela inteira */
             }
-            .hero { 
-                padding: 40px 5%; 
-                text-align: center; 
-                justify-content: center;
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav a {
+                margin: 0 10px;
             }
         }
     </style>
